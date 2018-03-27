@@ -2,7 +2,6 @@ baseurl = "https://example.com"
 languageCode = "ja"
 title = "himetani's cafe"
 theme = "cactus-plus"
-#copyright = "&copy; <a href=\"https://github.com/himetani\">himetani</a> 2016"
 hasCJKLanguage = true
 
 [params]
@@ -15,11 +14,11 @@ hasCJKLanguage = true
 	enableDisqus = true
 	disqusShortname = "himetani"
 
-	enableSummary = true
+	enableSummary = true 
 	useDescriptionReplaceSummary = false
 
 	# show latest posts in single page
-	showLatestPosts = true
+	showLatestPosts = true 
 	readMore = "Read more"
 
 	# Share
