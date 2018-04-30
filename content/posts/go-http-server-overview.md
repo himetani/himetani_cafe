@@ -6,7 +6,6 @@ draft: true
 
 # Goのhttp serverの雰囲気を理解する
 Goのhttpサーバの雰囲気を理解するための記事を書いた。  
-middlewareやrouterどのように作られているのか雰囲気をまとめた。
 <!--more-->
 
 # tl; dr
@@ -19,9 +18,33 @@ middlewareやrouterどのように作られているのか雰囲気をまとめ�
 # 始めてhttpサーバを立てるときの気持ち
 ググってみて、以下のようなコードを書くはず。
 ```go
+package main
 
+import (
+	"fmt"
+	"net/http"
+)
+
+type fuga int
+
+func (f *fuga) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "fuga type: %d", *f)
+}
+
+func main() {
+	http.HandleFunc("/hoge", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "Hello world")
+	})
+
+	f := fuga(1)
+	http.Handle("/fuga", &f)
+
+	if err := http.ListenAndServe(":8080", nil); err != nil {
+		panic(err)
+	}
+}
 ```
-HandleFuncやHandleメソッドを使ってhandlerを登録することができるのだな、handlerは特定のURLにマッピングされ、マッチするURLへのアクセス時にhandlerが実行されるのだな、と直感的に理解できる。
+HandleFuncやHandleメソッドを使ってhandlerを登録することができるのだな、handlerは特定のURLにマッピングされ、マッチするURLへのアクセス時にhandlerが実行されるのだな、と直感的に理解できると思う。
 
 # 本格的に使おうとするときの気持ち
 登録するhandlerの数が増えたり、より複雑になってくると、もっと上手くやれないものかと思うはず。例えば以下のようなもの。 
@@ -84,6 +107,23 @@ TCPサーバをListenしている。この後、`func (srv *Server) Serve(l net.
 `func (c *conn) serve(ctx context.Context) {}`の中のこの処理で、引き継がれた`Server`インスタンスが持つ`Handler`インタフェースを使って、dispatchが始まる。
 
 ```go
+2560 func (sh serverHandler) ServeHTTP(rw ResponseWriter, req *Request) {
+2561     handler := sh.srv.Handler
+2562     if handler == nil {
+2563         handler = DefaultServeMux
+2564     }
+2565     if req.RequestURI == "*" && req.Method == "OPTIONS" {
+2566         handler = globalOptionsHandler{}
+2567     }
+2568     handler.ServeHTTP(rw, req)
+2569 }
+```
+
+2561行目のHandlerはinterfaceである。このHandlerは、`http.ListenAndServe`関数の第２引数として指定されたHandlerである。
+Handler interfaceを満たしていればどんな型であってもよいので、この部分以降は実装により挙動が変わることになる（！）  
+ここからは`http.ListenAndServe`関数の第２引数を`nil`とした場合に使われるdefaultの`DefaultServeMux`の挙動を追っていく。
+```go
+
 ```
 
 # httpサーバの構成要素
