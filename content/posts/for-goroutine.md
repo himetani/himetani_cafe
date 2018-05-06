@@ -1,8 +1,9 @@
----
-title: "for文の中でmethodをgoroutine化する"
-date: 2018-03-30T22:41:19+09:00
-draft: false
----
++++
+title = "for文の中でmethodをgoroutine化する"
+date = 2018-03-30T22:41:19+09:00
+draft = false
+tags = ['golang']
++++
 
 # for文の中でmethodをgoroutine化する
 
