@@ -26,6 +26,7 @@ hasCJKLanguage = true
 	tweet = "Twitter"
 
 	iconFont = "font-awesome"
+	googleAnalytics = "UA-118965980-1"
 
 [social]
 	twitter-square = "https://www.twitter.com/himetani_cafe"
