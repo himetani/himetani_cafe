@@ -1,10 +1,9 @@
----
-title: "go modules(vgo)でlabstack/echo依存のプロジェクトをビルドする"
-date: 2018-07-14T19:47:30+09:00
-
-tags = ['golang']
++++
+title = "go modules(vgo)でlabstack/echo依存のプロジェクトをビルドする"
+date = 2018-07-14T19:47:30+09:00
 draft = false 
----
+tags = ['golang']
++++
 
 # go modules(vgo)でecho依存のプロジェクトをビルドする
 go modules(`vgo`)で`labstack/echo`を使ったプロジェクトをビルドするときにやったことを書いた。
