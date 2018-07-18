@@ -413,4 +413,4 @@ go.mod          go.sum          main.go         vgo-echo-sample
 - `vgo`では、`v0`、`v1`のバージョンは`github.com/foo/bar`、`v2`系以降のバージョンは`github.com/foo/bar/v2`のようにモジュールの依存を指定する.
 - go modulesに対応していないパッケージの`v2`系以降のバージョンを使うには`vgo get github.com/foo/bar@tag`とすることで`github.com/foo/bar`のままで利用できる. ただし、そのバージョンはpseudo-versionとなる.
 - pseudo-versionは、例えそれが`v2`系以降を示すバージョンであったとしても、go modulesの中では`v2`系以降のバージョンとは認識されない. 特定のcommitが直接指定されて依存解決される. 
-- 利用するパッケージがgo modulesに対応しておらず、`v2`系以降のバージョンを使いたい、もしくは利用するパッケージが依存するパッケージの依存の中にgo modulesに対応していないかつ`v2`系以降のバージョンの依存が含まれる場合、`vgo get`でいちいちpsuedo versionを指定しないとbuildできないので、めんどくさそう. (depやglideのプロジェクトを以降する場合は`vgo`がいい感じにやってくれるみたいなので、面倒くさいのは新規のプロジェクト)
+- 利用するパッケージがgo modulesに対応しておらず、`v2`系以降のバージョンを使いたい、もしくは利用するパッケージが依存するパッケージの依存の中にgo modulesに対応していないかつ`v2`系以降のバージョンの依存が含まれる場合、`vgo get`でいちいちpsuedo versionを指定しないとbuildできないので、めんどくさそう. (depやglideのプロジェクトを移行する場合は`vgo`がいい感じにやってくれるみたいなので、面倒くさいのは新規のプロジェクト)
