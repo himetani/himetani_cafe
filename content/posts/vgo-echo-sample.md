@@ -190,7 +190,7 @@ $ tree -L 3 $GOPATH/src/mod
 
 ## 失敗例その１
 ソースコードのimportを`github.com/labstack/echo`から`github.com/labstack/echo/v3`に書き直した.
-vgoにおいて、もっとも大きな変化の一つであるsemantic versioningでは、major versionの異なるパッケージは異なるimport pathで表す.
+vgoにおいて、もっとも大きな変化の一つであるsemantic import versioningでは、major versionの異なるパッケージは異なるimport pathで表す.
 例えば、`github.com/foo/var`というパッケージがあったときに、このパッケージの`v2`系を使うためには`github.com/foo/var/v2`というimport pathを指定する.
 ということで、その通りに書き直して試した.
 
