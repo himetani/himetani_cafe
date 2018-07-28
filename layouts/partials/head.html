@@ -30,6 +30,7 @@
 		{{ end }}
 
 		<!-- Global site tag (gtag.js) - Google Analytics -->
+		{{ if not .Site.BuildDrafts }}
 		{{ with .Site.Params.googleAnalytics }}<script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>{{ end }}
 		<script>
 		  window.dataLayer = window.dataLayer || [];
@@ -38,6 +39,7 @@
 
 		{{ with .Site.Params.googleAnalytics }}gtag('config', '{{ . }}');{{ end }}
 		</script>
+		{{ end }}
 
 
 	</head>
