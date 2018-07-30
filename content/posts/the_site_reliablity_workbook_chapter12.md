@@ -1,8 +1,8 @@
 +++
 title = "The Site Reliability Workbookの12章を読んだ"
 date = 2018-07-28T16:39:52+09:00
-draft  = true
-tags = []
+draft  = false
+tags = ['sre']
 +++
 
 # The Site Reliability Workbookの12章を読んだ
