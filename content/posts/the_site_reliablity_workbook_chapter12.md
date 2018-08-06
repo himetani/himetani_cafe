@@ -5,8 +5,6 @@ draft  = false
 tags = ['sre']
 +++
 
-# The Site Reliability Workbookの12章を読んだ
-
 The Site Reliability Workbookの12章を読んだので、自分の理解の要約をする
 
 <!--more-->
