@@ -1,33 +1,11 @@
-baseurl = "https://himetani.cafe/"
+baseurl = "https://himetani.github.io"
 languageCode = "ja"
 title = "himetani's cafe"
-theme = "cactus-plus"
+theme = "paper"
 hasCJKLanguage = true
+googleAnalytics = "UA-118965980-1"
+enableEmoji = true
 
 [params]
-	author = "himetani"
-	description = "Have a break?"
-	bio = "Have a break?"
-
 	twitter = "himetani_cafe"
-
-	enableDisqus = true
-	disqusShortname = "himetani"
-
-	enableSummary = true 
-	useDescriptionReplaceSummary = false
-
-	# show latest posts in single page
-	showLatestPosts = true 
-	readMore = "Read more"
-
-	# Share
-	enableShare = true
-	tweet = "Twitter"
-
-	iconFont = "font-awesome"
-	googleAnalytics = "UA-118965980-1"
-
-[social]
-	twitter-square = "https://www.twitter.com/himetani_cafe"
-	github-square = "https://www.github.com/himetani"
+	github = "himetani"
